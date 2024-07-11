@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "name": "Todos"
+    },
+    {
+        "id": 1,
+        "name": "Luffy"
+    },
+    {
+        "id": 2,
+        "name": "Zoro"
+    },
+    {
+        "id": 3,
+        "name": "Shanks"
+    },
+    {
+        "id": 4,
+        "name": "Ace"
+    },
+    {
+        "id": 5,
+        "name": "Sabo"
+    },
+    {
+        "id": 6,
+        "name": "Straw Hat Crew"
+    },
+    {
+        "id": 7,
+        "name": "Going Merry"
+    },
+    {
+        "id": 8,
+        "name": "New World"
+    }
+]
