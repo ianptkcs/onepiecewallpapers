@@ -17,6 +17,14 @@ const pages = [
 const GradienteRosa = 'linear-gradient(90deg, #c98cf1 0%, #7b78e5 100%)'
 const TextoRoxo = '#7B78E5'
 
+const AsideEstilizada = styled.aside`
+    background-color: #001634;
+    nav {
+        position: sticky;
+        top: 20vh;
+    }
+`
+
 const UlEstilizado = styled.ul`
     padding: 0 1rem;
     list-style: none;
@@ -47,14 +55,14 @@ const ItemEstilizado = styled.li`
                 padding: 0.2rem;
                 border-radius: 0.5rem;
                 img {
-                    width: 2rem;
+                    width: 1.5rem;
                     height: auto;
                 }
             }
 
             span {
                 white-space: nowrap;
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: #ffffff;
             }
         }
@@ -78,7 +86,7 @@ const BarraLateral = () => {
     }
 
     return (
-        <aside>
+        <AsideEstilizada>
             <nav>
                 <UlEstilizado>
                     {pages.map((page, index) => (
@@ -102,7 +110,7 @@ const BarraLateral = () => {
                     ))}
                 </UlEstilizado>
             </nav>
-        </aside>
+        </AsideEstilizada>
     )
 }
 

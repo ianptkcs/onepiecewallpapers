@@ -11,6 +11,11 @@ const HeaderEstilizado = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background: #001634;
+    z-index: 3;
+    height: 10vh;
 `
 
 const LogoEstilizada = styled.div`
@@ -42,8 +47,8 @@ const SearchBarEstilizada = styled.div`
                 border-radius: 5px;
                 padding: 0.8rem;
                 padding-left: 1.2rem;
-                font-size: 1.5rem;
-                width: 35rem;
+                font-size: 1.2rem;
+                width: 32rem;
                 background: transparent;
 
                 color: ${CorTexto};

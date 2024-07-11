@@ -3,14 +3,14 @@ import Tags from './tags.json'
 import { useState } from 'react'
 
 const TagsEstilizadas = styled.div`
-    margin: 2rem calc(2.5% + 2rem);
+    margin: 1.5rem calc(2.5% + 1rem);
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
 
     span {
         color: #d9d9d9;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
     ul {

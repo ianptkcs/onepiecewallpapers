@@ -4,7 +4,7 @@ import BannerImg from './assets/banner.jpg'
 const BannerEstilizado = styled.div`
     display: flex;
     position: relative;
-    height: 40vh;
+    height: 35vh;
 
     img {
         position: absolute;
@@ -24,7 +24,7 @@ const BannerEstilizado = styled.div`
         align-content: center;
 
         text-align: left;
-        font-size: 3.5rem;
+        font-size: 2.2rem;
         font-weight: 400;
         color: #ffffff;
     }
@@ -33,7 +33,7 @@ const BannerEstilizado = styled.div`
 const Banner = () => {
     return (
         <BannerEstilizado>
-            <span>A galeria mais completa de artes de One Piece</span>
+            <span>A galeria mais completa de wallpapers de One Piece</span>
             <img src={BannerImg}></img>
         </BannerEstilizado>
     )

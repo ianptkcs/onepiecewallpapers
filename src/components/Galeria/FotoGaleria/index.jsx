@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ExpandIcon from './assets/expand-icon.svg'
-import HeartLiked from './assets/heart-liked.png'
-import HeartNotLiked from './assets/heart-not-liked.png'
+import HeartLikedIcon from './assets/heart-liked-icon.png'
+import HeartNotLikedIcon from './assets/heart-not-liked-icon.png'
 import { useState } from 'react'
 
 const FotoGaleriaEstilizada = styled.li`
@@ -14,6 +14,7 @@ const FotoGaleriaEstilizada = styled.li`
     img {
         width: 100%;
         object-fit: cover;
+        cursor: pointer;
     }
 
     div {
@@ -22,24 +23,24 @@ const FotoGaleriaEstilizada = styled.li`
         grid-template-columns: 2fr 1fr;
         align-items: center;
         color: white;
-        font-size: 1.2rem;
-        padding-left: 2rem;
+        font-size: 1rem;
+        padding-left: 1rem;
 
         div {
-            padding-right: 2rem;
+            padding-right: 1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
 
             img {
                 cursor: pointer;
-                width: 3rem;
+                width: 2rem;
             }
         }
     }
 `
 
-const FotoGaleria = ({ foto }) => {
+const FotoGaleria = ({ foto, handleExpandir }) => {
     const [liked, setLiked] = useState([])
 
     const handleLike = () => {
@@ -54,17 +55,23 @@ const FotoGaleria = ({ foto }) => {
 
     return (
         <FotoGaleriaEstilizada>
-            <img src={foto.url} alt={foto.titulo}></img>
+            <img
+                src={foto.url}
+                alt={foto.titulo}
+                onClick={handleExpandir}
+            ></img>
             <div>
                 <h3>{foto.titulo}</h3>
                 <div>
                     <img
                         src={`${
-                            liked.includes(foto.id) ? HeartLiked : HeartNotLiked
+                            liked.includes(foto.id)
+                                ? HeartLikedIcon
+                                : HeartNotLikedIcon
                         }`}
                         onClick={handleLike}
                     />
-                    <img src={ExpandIcon} />
+                    <img src={ExpandIcon} onClick={handleExpandir} />
                 </div>
             </div>
         </FotoGaleriaEstilizada>
@@ -73,6 +80,7 @@ const FotoGaleria = ({ foto }) => {
 
 FotoGaleria.propTypes = {
     foto: PropTypes.string.isRequired,
+    handleExpandir: PropTypes.func.isRequired,
 }
 
 export default FotoGaleria
