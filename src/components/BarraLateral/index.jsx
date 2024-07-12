@@ -22,7 +22,7 @@ const AsideEstilizada = styled.aside`
     background-color: #001634;
     nav {
         position: sticky;
-        top: 13vh;
+        top: 15vh;
     }
 
     @media (max-width: 900px) {
