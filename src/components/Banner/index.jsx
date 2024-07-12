@@ -6,6 +6,11 @@ const BannerEstilizado = styled.div`
     position: relative;
     height: 35vh;
 
+    @media (max-width: 900px) {
+        margin-top: 2rem;
+        height: calc(35vh + 2rem);
+    }
+
     img {
         position: absolute;
         width: 95%;
@@ -24,7 +29,16 @@ const BannerEstilizado = styled.div`
         align-content: center;
 
         text-align: left;
-        font-size: 2.2rem;
+        font-size: 2rem;
+
+        @media (max-width: 900px) {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 1.2rem;
+        }
+
         font-weight: 400;
         color: #ffffff;
     }

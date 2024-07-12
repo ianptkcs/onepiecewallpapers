@@ -11,6 +11,14 @@ const GaleriaEstilizada = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr;
 
+    @media (max-width: 1200px) {
+        grid-template-columns: 4fr 2fr;
+    }
+
+    @media (max-width: 400px) {
+        grid-template-columns: 1fr;
+    }
+
     div {
         gap: 1rem;
 
@@ -20,6 +28,16 @@ const GaleriaEstilizada = styled.div`
             font-size: 1.5rem;
             color: #7b78e5;
             text-align: start;
+
+            @media (max-width: 900px) {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
         }
 
         ul {
@@ -28,12 +46,22 @@ const GaleriaEstilizada = styled.div`
             list-style: none;
         }
     }
+
+    .populares {
+        @media (max-width: 400px) {
+            display: none;
+        }
+    }
 `
 
 const ListaGaleriaEstilizada = styled.ul`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 const ListaPopularesEstilizada = styled.ul`
@@ -71,7 +99,7 @@ const Galeria = () => {
                     ))}
                 </ListaGaleriaEstilizada>
             </div>
-            <div>
+            <div className="populares">
                 <h2>Populares</h2>
                 <ListaPopularesEstilizada>
                     {GaleriaOrdenadaJson.map((foto) => (

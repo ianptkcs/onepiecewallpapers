@@ -5,6 +5,7 @@ import BarraLateral from './components/BarraLateral'
 import Banner from './components/Banner'
 import Filtro from './components/Filtro'
 import Galeria from './components/Galeria'
+import { useState } from 'react'
 
 const FundoGradiente = styled.div`
     background: linear-gradient(
@@ -21,15 +22,25 @@ const FundoGradiente = styled.div`
 const ContainerEstilizado = styled.div`
     display: grid;
     grid-template-columns: 1fr 11fr;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 function App() {
+    const [menu, setMenu] = useState(false)
+
+    const handleMenu = () => {
+        setMenu(!menu)
+    }
+
     return (
-        <FundoGradiente>
+        <FundoGradiente onClick={menu && handleMenu}>
             <EstilosGlobais />
-            <Cabecalho />
+            <Cabecalho menu={menu} setMenu={setMenu} handleMenu={handleMenu} />
             <ContainerEstilizado>
-                <BarraLateral />
+                <BarraLateral menu={menu} />
                 <main>
                     <Banner />
                     <Filtro />

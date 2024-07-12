@@ -11,6 +11,18 @@ const FotoGaleriaEstilizada = styled.li`
     display: grid;
     grid-template-rows: 13fr 7fr;
 
+    @media (max-width: 1200px) {
+        grid-template-rows: 10fr 3fr;
+    }
+
+    @media (max-width: 700px) {
+        grid-template-rows: 7fr 2fr;
+    }
+
+    @media (max-width: 570px) {
+        grid-template-rows: 4fr 2fr;
+    }
+
     img {
         width: 100%;
         object-fit: cover;
@@ -24,17 +36,29 @@ const FotoGaleriaEstilizada = styled.li`
         align-items: center;
         color: white;
         font-size: 1rem;
+
+        @media (max-width: 700px) {
+            font-size: 0.8rem;
+        }
+
         padding-left: 1rem;
 
         div {
-            padding-right: 1rem;
+            padding-right: 2rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: end;
+            gap: 2rem;
 
             img {
                 cursor: pointer;
                 width: 2rem;
+                @media (max-width: 700px) {
+                    width: 1.5rem;
+                }
+                @media (max-width: 570px) {
+                    width: 1rem;
+                }
             }
         }
     }

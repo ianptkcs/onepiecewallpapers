@@ -4,13 +4,28 @@ import { useState } from 'react'
 
 const TagsEstilizadas = styled.div`
     margin: 1.5rem calc(2.5% + 1rem);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.5fr 8.5fr;
     align-items: center;
     gap: 1.5rem;
+
+    @media (max-width: 1200px) {
+        display: grid;
+        grid-template-columns: 2fr 8fr;
+    }
+
+    @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     span {
         color: #d9d9d9;
         font-size: 1.1rem;
+        @media (max-width: 900px) {
+            font-size: 0.8rem;
+        }
     }
 
     ul {
@@ -19,6 +34,10 @@ const TagsEstilizadas = styled.div`
         gap: 1rem;
         list-style: none;
         padding: 0;
+
+        @media (max-width: 900px) {
+            justify-content: center;
+        }
 
         li {
             padding: 0.5rem 1rem;
@@ -30,6 +49,10 @@ const TagsEstilizadas = styled.div`
 
             span {
                 color: #ffffff;
+            }
+
+            @media (max-width: 900px) {
+                font-size: 0.8rem;
             }
         }
 

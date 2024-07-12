@@ -3,8 +3,9 @@ import MaisCurtidos from './assets/mais-curtidos-icon.svg'
 import MaisVistos from './assets/mais-vistos-icon.svg'
 import MaisRecentes from './assets/mais-recentes-icon.svg'
 import SurpreendaMe from './assets/surpreenda-me-icon.svg'
-import { useState } from 'react'
 import styled from 'styled-components'
+import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const pages = [
     { name: 'Início', icon: InicioIcon },
@@ -21,7 +22,21 @@ const AsideEstilizada = styled.aside`
     background-color: #001634;
     nav {
         position: sticky;
-        top: 20vh;
+        top: 13vh;
+    }
+
+    @media (max-width: 900px) {
+        position: relative;
+        visibility: hidden;
+        nav {
+            visibility: ${({ menu }) => menu && 'visible'};
+            z-index: 100;
+            background-color: #001634;
+            padding: 0 0 1rem 0;
+            font-size: 2rem;
+            position: absolute;
+            top: 0;
+        }
     }
 `
 
@@ -78,7 +93,7 @@ const ItemEstilizado = styled.li`
     }
 `
 
-const BarraLateral = () => {
+const BarraLateral = ({ menu }) => {
     const [currentPage, setCurrentPage] = useState(pages[0])
 
     const handlePageChange = (page) => {
@@ -86,7 +101,7 @@ const BarraLateral = () => {
     }
 
     return (
-        <AsideEstilizada>
+        <AsideEstilizada menu={menu}>
             <nav>
                 <UlEstilizado>
                     {pages.map((page, index) => (
@@ -94,11 +109,13 @@ const BarraLateral = () => {
                             <div>
                                 <a
                                     href="#"
-                                    onClick={() => handlePageChange(page)}
+                                    onClick={() => {
+                                        handlePageChange(page)
+                                    }}
                                     className={`${
                                         currentPage === page &&
                                         'pagina-selecionada'
-                                    }`}
+                                    } `}
                                 >
                                     <div>
                                         <img src={page.icon} alt={page.name} />
@@ -114,4 +131,7 @@ const BarraLateral = () => {
     )
 }
 
+BarraLateral.propTypes = {
+    menu: PropTypes.bool.isRequired,
+}
 export default BarraLateral

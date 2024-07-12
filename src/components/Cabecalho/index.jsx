@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import LogoImg from '../../../public/logo.png'
 import SearchIcon from './assets/search-icon.svg'
+import MenuIcon from './assets/menu-icon.png'
+import CloseIcon from './assets/close-icon.svg'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const CorTexto = '#FFFFFF'
 const CorBorda = '#C98CF1'
@@ -15,7 +18,20 @@ const HeaderEstilizado = styled.header`
     top: 0;
     background: #001634;
     z-index: 3;
-    height: 10vh;
+    height: 7vh;
+
+    img {
+        @media (max-width: 900px) {
+            height: 2.7rem;
+        }
+        @media (max-width: 400px) {
+            height: 2.5rem;
+        }
+    }
+
+    @media (max-width: 900px) {
+        justify-content: space-between;
+    }
 `
 
 const LogoEstilizada = styled.div`
@@ -23,10 +39,25 @@ const LogoEstilizada = styled.div`
         display: flex;
         align-items: center;
         gap: 0.8rem;
-        img {
-            max-width: 15%;
+
+        @media (max-width: 900px) {
+            justify-content: center;
         }
+
+        img {
+            height: 5rem;
+            @media (max-width: 900px) {
+                height: 4rem;
+            }
+            @media (max-width: 400px) {
+                height: 3rem;
+            }
+        }
+
         span {
+            @media (max-width: 900px) {
+                display: none;
+            }
             color: ${CorTexto};
             font-size: 1.5rem;
             align-self: center;
@@ -39,7 +70,6 @@ const SearchBarEstilizada = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        position: relative;
 
         form {
             input {
@@ -48,16 +78,34 @@ const SearchBarEstilizada = styled.div`
                 padding: 0.8rem;
                 padding-left: 1.2rem;
                 font-size: 1.2rem;
-                width: 32rem;
                 background: transparent;
-
+                width: 50vw;
+                min-width: 300px;
+                max-width: 800px;
                 color: ${CorTexto};
+
+                @media (max-width: 900px) {
+                    width: 35vw;
+                    min-width: 200px;
+                    font-size: 0.8rem;
+                }
+
+                @media (max-width: 400px) {
+                    min-width: 150px;
+                    font-size: 0.6rem;
+                }
             }
         }
         img {
             position: absolute;
-            right: 1rem;
-            width: 2.2rem;
+            right: calc(2.5% + 1rem);
+            width: calc(2.2rem + 0%);
+            @media (max-width: 900px) {
+                width: 1.5rem;
+            }
+            @media (max-width: 400px) {
+                width: 1.2rem;
+            }
         }
     }
 `
@@ -95,9 +143,10 @@ const SearchBar = () => {
     )
 }
 
-const Cabecalho = () => {
+const Cabecalho = ({ menu, handleMenu }) => {
     return (
         <HeaderEstilizado>
+            <img src={menu ? MenuIcon : CloseIcon} onClick={handleMenu} />
             <LogoEstilizada>
                 <Logo></Logo>
             </LogoEstilizada>
@@ -106,6 +155,11 @@ const Cabecalho = () => {
             </SearchBarEstilizada>
         </HeaderEstilizado>
     )
+}
+
+Cabecalho.propTypes = {
+    menu: PropTypes.bool.isRequired,
+    handleMenu: PropTypes.func.isRequired,
 }
 
 export default Cabecalho
