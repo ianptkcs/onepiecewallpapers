@@ -21,15 +21,10 @@ const HeaderEstilizado = styled.header`
     height: 7vh;
 
     img {
-        visibility: hidden;
-
         @media (max-width: 900px) {
-            visibility: visible;
-
             height: 2.7rem;
         }
         @media (max-width: 400px) {
-            visibility: visible;
             height: 2.5rem;
         }
     }
@@ -151,7 +146,13 @@ const SearchBar = () => {
 const Cabecalho = ({ menu, handleMenu }) => {
     return (
         <HeaderEstilizado>
-            <img src={menu ? MenuIcon : CloseIcon} onClick={handleMenu} />
+            {menu && (
+                <img
+                    className="menu"
+                    src={menu ? MenuIcon : CloseIcon}
+                    onClick={handleMenu}
+                />
+            )}
             <LogoEstilizada>
                 <Logo></Logo>
             </LogoEstilizada>
