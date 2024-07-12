@@ -21,10 +21,15 @@ const HeaderEstilizado = styled.header`
     height: 7vh;
 
     img {
+        visibility: hidden;
+
         @media (max-width: 900px) {
+            visibility: visible;
+
             height: 2.7rem;
         }
         @media (max-width: 400px) {
+            visibility: visible;
             height: 2.5rem;
         }
     }
