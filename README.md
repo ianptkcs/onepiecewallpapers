@@ -1,6 +1,6 @@
 # One Piece Wallpapers
 
-This project showcases the front-end interface, with back-end development still in progress. Some features have already been implemented.
+This project showcases the front-end interface for a One Piece wallpaper gallery, with back-end development still in progress. Some features are already implemented.
 
 ## Table of Contents
 
